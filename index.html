@@ -37,7 +37,7 @@ The data could be movies that someone loves to watch so using the well-trained a
 	The data could be images or even text /words that someone uses often in their emails or text messages.<br>
 
 Below are some projects which use machine learning to predict outcomes for future occurrences of the same kind of events.</p>
-<h2 id="campaign">ML Model to make your campaign
+<h2>ML Model to make your campaign
 	   <span style="color: #ff0000;">Successful!!</span></h2>
 <p><a href="http://kickstarter.com">Kickstarter</a> is a crowdfunding platform with a community of more than 10 million 
 	people who are creative, tech enthusiasts.<br>
@@ -88,7 +88,7 @@ To build a model,  the projects that have already been evaluated have to be stu
 
 The variable /column named ‘Evaluation_set’ is used to identify if the project has been evaluated or not. The Data Frame named ‘modelling_df’ will be is used to build the model.
 <h3><img class="alignnone size-full wp-image-81" src="https://vkwritings.files.wordpress.com/2020/01/3.png" alt="3" width="777" height="65" /></h3>
-<h3>CHECK CONTEXT OF DATA</h3>
+<h3>Check Context of data</h3>
 The dataframe which is used for modelling has 50,000 instances or sample projects and 27 features or columns describing various details about the project. The target is the column named ‘State’ which is either a 1 or 0 based on if the campaign was successful/unsuccessful.
 
 <img class="alignnone size-full wp-image-82" src="https://vkwritings.files.wordpress.com/2020/01/4.png" alt="4" width="299" height="119" />
@@ -99,7 +99,7 @@ Out of the 27 columns/features the data types of the features have to be checked
 
 The feature named ‘ Country’ describes which country the project belongs to. There are a few unique values. It is definitely a categorical column.
 <h3><img class="alignnone size-full wp-image-84" src="https://vkwritings.files.wordpress.com/2020/01/8.png" alt="8" width="941" height="159" /></h3>
-<h3>CHECK FOR NULLS VALUES AND FEATURES HAVING SINGLE VALUE/ OUTLIERS</h3>
+<h3>Check for null values and fetaures having single value or outliers</h3>
 There are many columns which have many nulls or values which predominantly have only one value or many outliers. An initial check could be made to see which columns to retain and columns that could be dropped. This can be done using statically data or graphically plotting the values
 
 The above function is used to check the distinct value counts, nulls, mean, standard deviation etc of all the columns and decision can be taken on what columns could be retained.
@@ -111,7 +111,7 @@ One of the common ways to handle categorical columns is ‘One Hot Encoding’. 
 
 We could use a column transformer to convert all the categorical columns but since we have only one column named ‘Country’ we could use a function.
 <h3><img class="alignnone size-full wp-image-86" src="https://vkwritings.files.wordpress.com/2020/01/10.png" alt="10" width="941" height="259" /></h3>
-<h3>DROPPING COLUMNS HAVING MISSING AND REDUNDANT DATA</h3>
+<h3>Dropping columns ahve redundant or missing data</h3>
 The features  - currency symbol, trailing code and currency can be dropped. The features ‘is_backing’, ‘permissions’, ‘friends’ and ‘is_starred’ have many missing values, so they could also be dropped at this moment.
 
 The column ‘URLs’ and ‘source_url’ contain only URLs and modelling algorithm needs numeric data, so they could be dropped.
@@ -120,7 +120,7 @@ There are a few columns which are JSON string which has to be looked in separate
 
 The columns to be retained are identified and a new data frame created containing only the columns to be retained.
 <h3><img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
-<h3>REDUCTION OF FEATURESET</h3>
+<h3>Reduction of the feature set</h3>
 Some of the columns are redundant and some of them can be clubbed to become one column.
 
 To compare the various projects, it would be better to convert the ‘money to be raised’ to a single currency. Since the USD rate is given for the various currencies, a new column is created ‘goal_in_usd’.
@@ -194,7 +194,10 @@ To improve the results of the Machine learning solution one can
 	<li>Look into features that can be used/dropped and feature engineering</li>
 	<li>Tune the hyperparameters of the algorithm selected.</li>
 </ul></p>
- 
+	      </article>
+	</div>
+	</div>
+	</div>
 
 </body>
 </html>
