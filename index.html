@@ -28,16 +28,17 @@
   </header>
 
   <article class="post-content">
-  <p>This is an small example of how ML can be used for prediction an classification</p><br>
+  <p>This is an small example of how ML can be used for prediction an classification</p>
 <p>Data is abundant now and is being collected constantly. Machine learning uses concepts of statistics and 
 	algorithms are written to see if any sense can be made of the data or if there is any pattern which can be learned. 
 	This learning can then be used to probably predict what the next data might be.<br>
 The data could be movies that someone loves to watch so using the well-trained algorithm, one could make 
 	an educated guess on what the person might want to see next.
-	The data could be images or even text /words that someone uses often in their emails or text messages.<br><br>
+	The data could be images or even text /words that someone uses often in their emails or text messages.<br>
 
 Below are some projects which use machine learning to predict outcomes for future occurrences of the same kind of events.</p>
-<h1>ML Model to make your campaign <span style="color: #ff0000;">Successful!!</span></h1>
+<h2 id="campaign">ML Model to make your campaign
+	   <span style="color: #ff0000;">Successful!!</span></h2>
 <p><a href="http://kickstarter.com">Kickstarter</a> is a crowdfunding platform with a community of more than 10 million 
 	people who are creative, tech enthusiasts.<br>
 
@@ -56,7 +57,14 @@ If you have any project in mind to post to Kickstarter, the following classifier
 	</ul></p>
 This is an iterative process because data has to re-examined and model rebuilt after tuning the parameters and processing the features until the best fit is found. During this iterative process, one must not sacrifice the simplicity for complexity.
 <h2><span style="color: #800000;">Exploratory Data Analysis</span></h2>
-Understanding the data is very vital before moving on to classifying or evaluating it. This process is called Exploratory Data Analysis (EDA). This important step enables one to spot anomalies before beginning the Machine Learning model. It also brings out the bigger picture of the data. EDA could be done in a Graphical or Non-Graphical means. Non-Graphical methods are generally the summary statistics. EDA could also include methods to
+Understanding the data is very vital before moving on to classifying or evaluating it. This process is called 
+	      Exploratory Data Analysis (EDA). This important step enables one to spot anomalies 
+	      
+	      
+before beginning the Machine Learning model. It also brings out the bigger picture of the data. 
+	      
+	      EDA could be done in a Graphical or Non-Graphical means. Non-Graphical methods are generally the summary statistics.
+	      EDA could also include methods to
 <ul>
 	<li>Reduce Dimensionality: Reduce the number of features to a linear combination of data so that data has fewer features (Columns) which can explain most of the variance.</li>
 	<li>Analyse the Cluster: Data can be organised into clusters so that similar observations are clubbed into clusters.</li>
@@ -68,11 +76,13 @@ Python is the languaged used to analyse and build the model.The following librar
 	<li>NumPy: For scientific computations</li>
 	<li>sklearn : The machine learning library of Python</li>
 </ul>
-<img class="alignnone size-full wp-image-87" src="https://vkwritings.files.wordpress.com/2020/01/lib.png" alt="lib" width="360" height="82" />
+<div class="fig figcenter fighighlight">
+<img class="alignnone size-full wp-image-87" src="https://vkwritings.files.wordpress.com/2020/01/lib.png" alt="lib" width="360" height="82" /></div>
 
-The data used for this evaluation has been downloaded and stored as a  stored as a CSV file which is the commonly used format for exchanging data. To begin with, read the CSV file into a variable.
+<p>The data used for this evaluation has been downloaded and stored as a  stored as a CSV file which is the commonly used format for exchanging data. To begin with, read the CSV file into a variable.</p>
 
-<img class="alignnone size-full wp-image-88" src="https://vkwritings.files.wordpress.com/2020/01/rawdf.png" alt="rawdf" width="661" height="61" />
+<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-88" src="https://vkwritings.files.wordpress.com/2020/01/rawdf.png" alt="rawdf" width="661" height="61" /></div>
 
 To build a model,  the projects that have already been evaluated have to be studied. In order to do that we divide the whole raw data into two data frames. One of which to used to model the prediction model and the other to test if our model is accurate.
 
