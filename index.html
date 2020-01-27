@@ -28,11 +28,11 @@
   </header>
 
   <article class="post-content">
-  <p>This is an small example of how ML can be used for prediction an classification</p>
+  <p>This is an small example of how ML can be used for prediction</p>
 <p>Data is abundant now and is being collected constantly. Machine learning uses concepts of statistics and 
 	algorithms are written to see if any sense can be made of the data or if there is any pattern which can be learned. 
 	This learning can then be used to probably predict what the next data might be.<br>
-The data could be movies that someone loves to watch so using the well-trained algorithm, one could make 
+The data could be movies that someone loves to watch .Using a well-trained algorithm, one could make 
 	an educated guess on what the person might want to see next.
 	The data could be images or even text /words that someone uses often in their emails or text messages.<br>
 
@@ -91,26 +91,28 @@ The variable /column named ‘Evaluation_set’ is used to identify if the proje
 <h3>Check Context of data</h3>
 The dataframe which is used for modelling has 50,000 instances or sample projects and 27 features or columns describing various details about the project. The target is the column named ‘State’ which is either a 1 or 0 based on if the campaign was successful/unsuccessful.
 
-<img class="alignnone size-full wp-image-82" src="https://vkwritings.files.wordpress.com/2020/01/4.png" alt="4" width="299" height="119" />
+<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-82" src="https://vkwritings.files.wordpress.com/2020/01/4.png" alt="4" width="299" height="119" /></div>
 
 Out of the 27 columns/features the data types of the features have to be checked. A check needs to done to see how many have valid values in them.
 
-<img class="alignnone size-full wp-image-83" src="https://vkwritings.files.wordpress.com/2020/01/5.png" alt="5" width="941" height="173" />Most of the columns are numerical but a few are non-numerical. Since an ML model cannot be built on non-numerical column one needs to now study on how the columns can be made numerical or eliminated altogether.
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-83" src="https://vkwritings.files.wordpress.com/2020/01/5.png" alt="5" width="941" height="173" /></div>
+	      Most of the columns are numerical but a few are non-numerical. Since an ML model cannot be built on non-numerical column one needs to now study on how the columns can be made numerical or eliminated altogether.
 
 The feature named ‘ Country’ describes which country the project belongs to. There are a few unique values. It is definitely a categorical column.
-<h3><img class="alignnone size-full wp-image-84" src="https://vkwritings.files.wordpress.com/2020/01/8.png" alt="8" width="941" height="159" /></h3>
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-84" src="https://vkwritings.files.wordpress.com/2020/01/8.png" alt="8" width="941" height="159" /></div>
 <h3>Check for null values and fetaures having single value or outliers</h3>
 There are many columns which have many nulls or values which predominantly have only one value or many outliers. An initial check could be made to see which columns to retain and columns that could be dropped. This can be done using statically data or graphically plotting the values
 
 The above function is used to check the distinct value counts, nulls, mean, standard deviation etc of all the columns and decision can be taken on what columns could be retained.
-<h2><img class="alignnone size-full wp-image-85" src="https://vkwritings.files.wordpress.com/2020/01/9.png" alt="9" width="799" height="252" /></h2>
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-85" src="https://vkwritings.files.wordpress.com/2020/01/9.png" alt="9" width="799" height="252" /></div>
 <h2><span style="color: #800000;">Preprocessing</span></h2>
 Machine learning algorithms require inputs to be numerical and so if there are any columns which are categorical, they need to somehow be transformed into numerical before using them to predict a model.
 
 One of the common ways to handle categorical columns is ‘One Hot Encoding’. This technique can be employed when the values have no particular ordering. For every unique value of the column , another column is created where the value is 1 if for that instance the feature takes that value else 0. For example, the column ‘country’ could be the US. So, a new column (Country_US) can be created which will have a value 1 or 0 based on if the value of the column is ‘US’ or not.
 
 We could use a column transformer to convert all the categorical columns but since we have only one column named ‘Country’ we could use a function.
-<h3><img class="alignnone size-full wp-image-86" src="https://vkwritings.files.wordpress.com/2020/01/10.png" alt="10" width="941" height="259" /></h3>
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-86" src="https://vkwritings.files.wordpress.com/2020/01/10.png" alt="10" width="941" height="259" /></div>
 <h3>Dropping columns ahve redundant or missing data</h3>
 The features  - currency symbol, trailing code and currency can be dropped. The features ‘is_backing’, ‘permissions’, ‘friends’ and ‘is_starred’ have many missing values, so they could also be dropped at this moment.
 
@@ -119,18 +121,21 @@ The column ‘URLs’ and ‘source_url’ contain only URLs and modelling algor
 There are a few columns which are JSON string which has to be looked in separately to extract only the columns which add value to the modelling.
 
 The columns to be retained are identified and a new data frame created containing only the columns to be retained.
-<h3><img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
-<h3>Reduction of the feature set</h3>
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
+<h3>Reduction of the feature set</div>
 Some of the columns are redundant and some of them can be clubbed to become one column.
 
 To compare the various projects, it would be better to convert the ‘money to be raised’ to a single currency. Since the USD rate is given for the various currencies, a new column is created ‘goal_in_usd’.
 
-<img class="alignnone size-full wp-image-101" src="https://vkwritings.files.wordpress.com/2020/01/30.png" alt="30" width="941" height="114" />To make sense of the dates we could club the various dates and create single columns containing the various duration in milliseconds.
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-101" src="https://vkwritings.files.wordpress.com/2020/01/30.png" alt="30" width="941" height="114" />
+	      </div>To make sense of the dates we could club the various dates and create single columns containing the various duration in milliseconds.
 
-<img class="alignnone size-full wp-image-90" src="https://vkwritings.files.wordpress.com/2020/01/13.png" alt="13" width="941" height="80" />Some of the columns from the multiple columns stored in the JSON string can be extracted and added the data frame on which modelling is performed. Looking at the ‘category’ column, the value of column ‘slug’ could be split to obtain the ‘parent category’ and the ‘category column’.
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-90" src="https://vkwritings.files.wordpress.com/2020/01/13.png" alt="13" width="941" height="80" />
+	      </div>
+	      Some of the columns from the multiple columns stored in the JSON string can be extracted and added the data frame on which modelling is performed. Looking at the ‘category’ column, the value of column ‘slug’ could be split to obtain the ‘parent category’ and the ‘category column’.
 
 These columns are categorical columns so they could be encoded too.
-<h3><img class="alignnone size-full wp-image-91" src="https://vkwritings.files.wordpress.com/2020/01/14.png" alt="14" width="941" height="304" /></h3>
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-91" src="https://vkwritings.files.wordpress.com/2020/01/14.png" alt="14" width="941" height="304" /></div>
 <h3>SCALING</h3>
 From the data, it is very obvious that the columns have various units. In some machine learning algorithms, the units have to be scaled because certain weights may update faster than others. Algorithms like Decision tree or k-nearest neighbours are not affected by the scaling.
 
@@ -138,11 +143,11 @@ There are a few methods which can be used to scale features. Some of them are th
 
 MinMaxScaler is used in this case and it follows the following formulae
 
-<img class="alignnone size-full wp-image-92" src="https://vkwritings.files.wordpress.com/2020/01/15.png" alt="15" width="216" height="91" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-92" src="https://vkwritings.files.wordpress.com/2020/01/15.png" alt="15" width="216" height="91" /></div>
 
 The range of the features is now shrunk to values between 0 and 1. If there were negative values the scaler shrinks them to values between 1 and -1. However, this scaler is sensitive to outliers.
 
-<img class="alignnone size-full wp-image-102" src="https://vkwritings.files.wordpress.com/2020/01/31.png" alt="31" width="941" height="79" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-102" src="https://vkwritings.files.wordpress.com/2020/01/31.png" alt="31" width="941" height="79" /></div>
 
 After the first round of preprocessing, we have 169 columns.
 <ul>
@@ -162,29 +167,30 @@ GridSearch is used so that the hyperparameters can be tuned to get the most opti
 
 The best combination of the hyperparameters is chosen.
 
-<img class="alignnone size-full wp-image-94" src="https://vkwritings.files.wordpress.com/2020/01/20.png" alt="20" width="721" height="274" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-94" src="https://vkwritings.files.wordpress.com/2020/01/20.png" alt="20" width="721" height="274" /></div>
 
 The results are sorted based on the scores of the test and the best combination is picked.
 
 The table below displays the results and it is clear that the ‘max depth’ of 13 gives the best accuracy
 
-<img class="alignnone size-full wp-image-95" src="https://vkwritings.files.wordpress.com/2020/01/22.png" alt="22" width="941" height="276" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-95" src="https://vkwritings.files.wordpress.com/2020/01/22.png" alt="22" width="941" height="276" /></div>
 
 We could have a look at the features which play an important part in this model.
 
 <hr />
 
-<img class="alignnone size-full wp-image-96" src="https://vkwritings.files.wordpress.com/2020/01/23.png" alt="23" width="790" height="166" />It can be seen that profile_state and Goal_in USD are 2 columns which have the most influence. One can also see the categories and subcategories which are highly influential.
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-96" src="https://vkwritings.files.wordpress.com/2020/01/23.png" alt="23" width="790" height="166" /></div>
+	      It can be seen that profile_state and Goal_in USD are 2 columns which have the most influence. One can also see the categories and subcategories which are highly influential.
 
-<img class="alignnone size-full wp-image-97" src="https://vkwritings.files.wordpress.com/2020/01/24.png" alt="24" width="563" height="471" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-97" src="https://vkwritings.files.wordpress.com/2020/01/24.png" alt="24" width="563" height="471" /></div>
 <h3>LOGISTIC REGRESSION</h3>
 Similar to the Decision Tree, we build a Logistic Regression model too. We use GridSearch and provide certain hyperparameters and chose the combination which gives the best result
 
-<img class="alignnone size-full wp-image-98" src="https://vkwritings.files.wordpress.com/2020/01/25.png" alt="25" width="941" height="261" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-98" src="https://vkwritings.files.wordpress.com/2020/01/25.png" alt="25" width="941" height="261" /></div>
 
 As can be seen from the results, the best results are for a value of C = 4
 
-<img class="alignnone size-full wp-image-104" src="https://vkwritings.files.wordpress.com/2020/01/32.png" alt="32" width="941" height="115" />
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-104" src="https://vkwritings.files.wordpress.com/2020/01/32.png" alt="32" width="941" height="115" /></div>
 
 Logistic Regression seems to give better results than the Decision tree, though the accuracy is only 76%. We could further preprocess by applying a PCA of the columns which have very high variance. We could extract more columns and scale them using another scaler. The process of preprocessing and hyper tuning the parameters is an iterative process. Care has to taken not to overfit the model.
 
