@@ -270,13 +270,18 @@ Logistic Regression seems to give better results than the Decision tree, though 
 	 <div class="fig figcenter fighighlight">
 	<img class="alignnone size-full wp-image-87" src="images/lib1.PNG" 
 	     alt="lib" width="360" height="82" />
-	<img class="alignnone size-full wp-image-87" src="images/lib2.png" 
+	<img class="alignnone size-full wp-image-87" src="images/lib2.PNG" 
 	     alt="lib" width="360" height="82" />
 	 </div>
 	 </p>
 	<p>The data used for this evaluation is 
 		stored as a CSV file format. It does contain a header and comma is used to seperate the various features.
 		To begin with, read the CSV file and convert the data into a pandas dataframe.</br></p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/read.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 	<p>The data is inspected.The various features/attributes is inspected. There  are 24 columns. 
 		The column 'name' which is used to identify the patient
 		adds no value in training the model. The column named 'status' is the target which we need to predict. It can have 2 values '1' if
@@ -284,6 +289,7 @@ Logistic Regression seems to give better results than the Decision tree, though 
 		So we could assign 'y', the target pandas series as the column 'status'. All the columns except 'name' could be assigned to 'X'.
 	<br>
 	</p>
+	
 	<p>
 	<h3> Feature Engineering</h3>
 	There are no columns with categorical values . So there is no need to One-hot encode or label encode any feature. <br>
@@ -298,6 +304,11 @@ Logistic Regression seems to give better results than the Decision tree, though 
 	misclassified as 'PD' since the status value '1'(PD) is the dominant class. 
 	This causes unecessary heartache for a healthy patient as well as the model will become unrealiable. 
 	Since PD is not a minority class, wrong classification will not cost a life.<br>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/class_imb.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 	
 	'Accuracy' cannot be used as the scoring strategy in this case. We could oversampling the minority class but that might lead to overfitting. Undersampling the majority class might 
 	lead to model being biased.
@@ -315,10 +326,20 @@ Logistic Regression seems to give better results than the Decision tree, though 
 		The data is generallly split into training and testing sets. Around 20% is set aside as test data.
 		
 	</p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/split.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 	<h3>Baseline Model</h3>
 	<p> Let us consdier to first use Logistic regression as the classifier to create a baseline model. This is not optimised
 		and will be used to compare with other models.
 	</p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/simple logistic.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 	<h3>Ensemble Model</h3>
 	<p> When several ML techniques are combined together it is called as ensemble and this improves the accuravy of the predictions 
 		sometimes. They are combined to reduce the variance(bagging), bias(boosting) and predictions accuracy(stacking).
@@ -326,6 +347,11 @@ Logistic Regression seems to give better results than the Decision tree, though 
 		it s grouped as sequential.The weghts of the mislabbelled instances are boosted so that the next sequenetial model learns from it.
 		In parallel, the base learners are independent of  each other. Bt averaging, the errors are reduced.
 		<br></p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/stacking_code.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 <h4>Bagging</h4>
 <p>
 	Bagging stands for Bootstarp aggregating. Bootstarp samples are used to obtain various data susets to train the base learners.
@@ -335,10 +361,20 @@ Logistic Regression seems to give better results than the Decision tree, though 
 	thus further randomising the tree. Though bias might increase, the variance is decreased.
 	
 </p>
+<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/stacking_with CV_code.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 <h4>Boosting</h4>
 <p>Several weak learners are better than random guessing. The misclassified instances are given more weight and trained again. Finally the weighted sum or 
 	weighted majority vote is used to decide on the final prediction
 </p>
+<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/xgb.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 <h3> Comparing the models</h3>
 <p>Since there is a slight class imbalance, Classification report or accuracy score is not the metrics to be used to compare this models.
 	
@@ -355,13 +391,39 @@ Logistic Regression seems to give better results than the Decision tree, though 
 	<ul>
 		<li>prediction < 0.71 = Class 0</li>
 		<li>prediction >= 0.71 = Class 1</li>
-	</ul.
+</ul>
+<div class="fig figcenter fighighlight">
+<div class="row">
+  <div class="column">
+    <img src="images/logistic.PNG" alt="logistic" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/stacking.PNG" alt="stacking" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/stacking_with CV.PNG" alt="stacking with CV" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/xboost_roc.PNG" alt="boost" style="width:100%">
+  </div>
+</div>
+</div>
 </p>
 	<h3>Understanding the importance of the features</h3>
 		<p>
 			Since Boosting seems to give the best score, if we decide to using a boosting model, xgboost classifier is able to show which attributes where considered important by the model 
 			A plot of the importances of features with weights for each feature is displayed .The weights sum to one.
 		</p>
+		div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/feat_impcode.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+	div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="feature importance.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
 
 	  </div>
 	      </article>
