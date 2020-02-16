@@ -343,16 +343,15 @@ Logistic Regression seems to give better results than the Decision tree, though 
 	ROC curves can be used to analyse the predicted probablities of the model and the ROC-AUC curves could be used to select the best model.
 	
 	The curve gives an picture of the true and fale positive rates for the various thresholds.The area under the curve gives the accuracy of the model.
-</p>
 
-<p>
+
 	If we adopt the boosting model then the optimum threshold could be set as 0.71
 	<ul>
 		<li>prediction < 0.71 = Class 0</li>
 		<li>prediction >= 0.71 = Class 1</li>
-		</ul.
+	</ul.
 </p>
-		<h3>Understanding the importance of the features</h3>
+	<h3>Understanding the importance of the features</h3>
 		<p>
 			Since Boosting seems to give the best score, if we decide to using a boosting model, xgboost classifier is able to show which attributes where considered important by the model 
 			A plot of the importances of features with weights for each feature is displayed .The weights sum to one.
