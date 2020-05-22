@@ -28,9 +28,11 @@ body {
   background-color: #fdfdfd;
 }
 
-h1, h2,  h5, h6 { font-size: 100%; font-weight: 400; }
-h3 { font-size: 80%; font-weight: 300; }
-h2 { font-size: 70%; font-weight: 200; }
+h1 { font-size: 100%; font-weight: 400; }
+h2 { font-size: 80%; font-weight: 300; }
+h3 { font-size: 70%; font-weight: 200; }
+h4 { font-size: 60%; font-weight: 150; }
+h5 { font-size: 50%; font-weight: 100; }
 
 a         { color: #2a7ae2; text-decoration: none; }
 a:hover   { color: #000; text-decoration: underline; }
