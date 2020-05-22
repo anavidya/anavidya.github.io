@@ -284,9 +284,6 @@ a:visited { color: #205caa; }
 
 
 .post-content h1,
-.post-content h2,
-.post-content h3,
-.post-content h4,
 .post-content h5,
 .post-content h6 {
   line-height: 1;
@@ -295,19 +292,20 @@ a:visited { color: #205caa; }
 }
 
 .post-content h2 {
-  font-size: 32px;
+  font-size: 20px;
+  letter-spacing: -1.25px;
+}
+.post-content h3 {
+  font-size: 15px;
   letter-spacing: -1.25px;
 }
 
-.post-content h3 {
-  font-size: 26px;
+.post-content h4 {
+  font-size: 10px;
   letter-spacing: -1px;
 }
 
-.post-content h4 {
-  font-size: 20px;
-  letter-spacing: -1px;
-}
+
 
 .post-content blockquote {
   border-left: 4px solid #e8e8e8;
