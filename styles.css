@@ -89,6 +89,23 @@ a:visited { color: #205caa; }
 }
 
 /* Custom CSS for pages */
+.column {
+  float: left;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .figcenter {
   text-align: center;
 }
