@@ -58,7 +58,7 @@ Make sure you install all components</p>
 An engine has to configured which provides access to a database which can then invoke SQL statements. to create an engine, use 
 the create engine call of the SQLAlchemy SQL Toolkit </p>
 <div class="fig figcenter fighighlight">
-<img class="alignnone size-full wp-image-87" src="/images/connect engine.PNG" alt="lib" width="360" height="82" />
+<img class="alignnone size-full wp-image-87" src="/images/connect engine.PNG" alt="lib" width="50%" height="10%" />
 </div>
 <p> Lets create a books database which has a table named 'Books' whose data is loaded from a JSON file. JSON(JavaScript Object Notation) 
 is a lightweight data-interchange format. 
@@ -70,7 +70,7 @@ is a lightweight data-interchange format.
  </p>
 	      <p> Here is a sample of books JSON file</p>
 	      <div class="fig figcenter fighighlight">
-<img class="alignnone size-full wp-image-87" src="/images/books-json.PNG" alt="lib" width="360" height="82" />
+<img class="alignnone size-full wp-image-87" src="/images/books-json.PNG" alt="lib" width="360" height="200" />
 </div>
 	      
 <p> Next step is to read the JSON file and upload it as a column into the database. We could create a table to enter the details of the books as 'Books'
@@ -80,7 +80,7 @@ we could replace nulls and then convert the contents to a JSONB format and using
 	in postgres using the connection that we had established earlier. </p>
               <p>We could create a function to read the JSON file and load ito Pstgres as follows</p>
               <div class="fig figcenter fighighlight">
-<img class="alignnone size-full wp-image-87" src="/images/func1.PNG" alt="lib" width="360" height="82" />
+<img class="alignnone size-full wp-image-87" src="/images/func1.PNG" alt="lib" width="360" height="250" />
 </div>
 <p>To check if the data has been loaded into our database we could execute a simple query which will
 return the count of no. of records in the books table.</p>
@@ -92,7 +92,7 @@ for example, if we wanted to query on the titles and the publishing date of the 
 we could perform it as follows.
 </p>
 <div class="fig figcenter fighighlight">
-<img class="alignnone size-full wp-image-87" src="/images/query1.PNG" alt="lib" width="360" height="82" />
+<img class="alignnone size-full wp-image-87" src="/images/query1.PNG" alt="lib" width="100%" height="60%" />
 </div>                 
 
 
