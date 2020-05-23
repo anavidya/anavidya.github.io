@@ -53,10 +53,30 @@ it is preferable to use document database as an alternative.</p>
 </p>
 <p>Install the latest version of Postgres for your platform from the <a href=" https://www.postgresql.org/download/">Homepage.</a>
 Make sure you install all components</p>
-	      <p>To work python and Databases we will be using the SQLAlchemy SQL Toolkit. The SQL Expression Language is a toolkit is used to construct manipulable SQL expressions 
-		      which can be programmatically constructed, modified, and executed.
-	      An engine has to configured which provides access to a database which can then invoke SQL statements. to create an engine, use 
-	      the create engine call of the SQLAlchemy SQL Toolkit </p>
+<p>To work python and Databases we will be using the SQLAlchemy SQL Toolkit. The SQL Expression Language is a toolkit is used to construct manipulable SQL expressions 
+      which can be programmatically constructed, modified, and executed.
+An engine has to configured which provides access to a database which can then invoke SQL statements. to create an engine, use 
+the create engine call of the SQLAlchemy SQL Toolkit </p>
+<div class="fig figcenter fighighlight">
+<img class="alignnone size-full wp-image-87" src="connect engine.png" alt="lib" width="360" height="82" />
+</div>
+<p> Lets create a books database which has a table named 'Books' whose data is loaded from a JSON file. JSON(JavaScript Object Notation) 
+is a lightweight data-interchange format. 
+	<a href = "https://www.json.org/json-en.html">JSON</a> is built on two structures:
+<ul>
+<li>A collection of name/value pairs</li>
+<li>An ordered list of values</li>
+</ul>
+ </p>
+	      <p> Here is a sample of books JSON file</p>
+	      <div class="fig figcenter fighighlight">
+<img class="alignnone size-full wp-image-87" src="books-json.png" alt="lib" width="360" height="82" />
+</div>
+	      
+	       <p> Next step is to read the JSON file and upload it as a column into the database. We could create a table to enter the details of the books as 'Books'
+	      We are not worried of the number of attributes that we are loading at this point nor about any constraints between the various attributes.
+	      To do this, one of the ways could be to use Pandas library of Python to first convert to a dataframe. Since Postgres cannot accept NULL
+	      we could replace nulls and then convert the contents to a JSONB format and using SQL upload into a table in postgres using the connection that we had established earlier. </p>
      </article>
 	</div>
 	</div>
