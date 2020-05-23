@@ -108,7 +108,7 @@ a:visited { color: #205caa; }
   display: table;
 }
 
-ul.space_list li { margin-bottom: 2em; }
+ul.space_list li { margin-bottom: 1em; }
 
 .figcenter {
   text-align: center;
