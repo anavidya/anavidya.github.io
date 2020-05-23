@@ -12,7 +12,7 @@
 <header class="site-header">
 
   <div class="wrap title-wrap">
-    <a class="site-title" href="/">Document Database example</a>
+    <p class="site-title">Document Database example</p>
   </div>
 
 </header>
@@ -26,22 +26,22 @@
 
   <article class="post-content">
 <p>
-Document databases are built around semi-structeured data like XML or JSON like type of documents. This is becoming the popular alternative to 
+Document databases are built around semi-structured data like XML or JSON like type of documents. This is becoming the popular alternative to 
 relational databases and sometimes called as NoSQL Database.
 These databases allow fundamental operations like create, read, update and delete(CRUD) on documents and their contents.
 The querying language is similar to SQL. Adhoc queries, real time aggregations, indexing are some of the transformations possible with the quering language.
-These database can perform better on 'Big data' since the database is distributed at their core. 
+These databases can perform better on 'Big data' since the database is distributed at their core. 
 Documents are stored across multiple servers as they are not dependent.
 </p>
 <header class="post-header">
     <h1>When to use document Database</h1>
  </header>
 
-<h4>When data is semistructured</h4>
+<h3>When data is semistructured</h3>
 <p>When the data has many columns or attributes which are not filled in yet, or have complicated relationships or 
 	have complex nested structures, 
 it is preferable to use document database as an alternative.</p>
-<h4>When you do have the capacity to model the whole domain at the moment</h4>
+<h4>When you do not have the capacity to model the whole domain at the moment</h4>
 <h4> Some of the popular document Databases are mangoDB, amazon Dynamo DB, cassandra and so on.</h4>
 
 <h3> Example using Postgres-as-a-document-DB</h3>
@@ -53,9 +53,10 @@ it is preferable to use document database as an alternative.</p>
 </p>
 <p>Install the latest version of Postgres for your platform from the <a href=" https://www.postgresql.org/download/">Homepage.</a>
 Make sure you install all components</p>
-<p>To work python and Databases we will be using the SQLAlchemy SQL Toolkit. The SQL Expression Language is a toolkit is used to construct manipulable SQL expressions 
+<p>To use Python to access databases we will be using the SQLAlchemy SQL Toolkit. The SQL Expression Language is a toolkit used to 
+	construct and manipulable SQL expressions 
       which can be programmatically constructed, modified, and executed.
-An engine has to configured which provides access to a database which can then invoke SQL statements. to create an engine, use 
+An engine has to configured which provides access to a database which can then invoke SQL statements. To create an engine, use 
 the create engine call of the SQLAlchemy SQL Toolkit </p>
 <div class="fig figcenter fighighlight">
 <img class="alignnone size-full wp-image-87" src="/images/connect engine.PNG" alt="lib" width="50%" height="10%" />
@@ -73,12 +74,13 @@ is a lightweight data-interchange format.
 <img class="alignnone size-full wp-image-87" src="/images/books-json.PNG" alt="lib" width="360" height="200" />
 </div>
 	      
-<p> Next step is to read the JSON file and upload it as a column into the database. We could create a table to enter the details of the books as 'Books'
+<p> Next step is to read the JSON file and upload it as a column into the database. We could convert the data into a table and store in the database.
+	
 We are not worried of the number of attributes that we are loading at this point nor about any constraints between the various attributes.
-To do this, one of the ways could be to use Pandas library of Python to first convert to a dataframe. Since Postgres cannot accept NULL
-we could replace nulls and then convert the contents to a JSONB format and using SQL upload into a table
+To do this, one of the ways could be to use Pandas library of Python to first convert to a table. Since Postgres cannot accept NULL
+we could replace nulls and then convert the contents to a JSONB format and using SQL upload into a table named 'books'
 	in postgres using the connection that we had established earlier. </p>
-              <p>We could create a function to read the JSON file and load ito Pstgres as follows</p>
+              <p>We could create a function to read the JSON file and load into Postgres as follows</p>
               <div class="fig figcenter fighighlight">
 <img class="alignnone size-full wp-image-87" src="/images/func1.PNG" alt="lib" width="100%" height="250" />
 </div>
