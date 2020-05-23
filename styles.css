@@ -100,10 +100,12 @@ a:visited { color: #205caa; }
 .right {
   width: 75%;
 }
-.row:after {
+
+/* Clear floats after image containers */
+.row::after {
   content: "";
-  display: table;
   clear: both;
+  display: table;
 }
 
 .figcenter {
@@ -522,15 +524,5 @@ a:visited { color: #205caa; }
     margin: 0 0 15px; }
 
 }
-.column {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+
