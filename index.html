@@ -63,7 +63,7 @@
 	estestestestestestestestestestestestestestestestestest
 	estestestestestestestestestest</p>
 </div>
-<div id ="robin">
+<div id ="robin" class = insidetext>
 	<img class="alignnone size-full wp-image-87" 
 	     src="/images/robin.jpg" 
 	     alt="Robin" width ='386px' height = '286px'/>
@@ -124,8 +124,12 @@
 
             To build a model,  the projects that have already been evaluated have to be studied. In order to do that we divide the whole raw data into two data frames. One of which to used to model the prediction model and the other to test if our model is accurate.
 
-            The variable /column named ‘Evaluation_set’ is used to identify if the project has been evaluated or not. The Data Frame named ‘modelling_df’ will be is used to build the model.
-            <h3><img class="alignnone size-full wp-image-81" src="https://vkwritings.files.wordpress.com/2020/01/3.png" alt="3" width="777" height="65" /></h3>
+            The variable /column named ‘Evaluation_set’ is used to identify if the project has been evaluated or not. 
+	The Data Frame named ‘modelling_df’ will be is used to build the model.
+            <div class="fig figcenter fighighlight">
+		    <img class="alignnone size-full wp-image-81" 
+			 src="https://vkwritings.files.wordpress.com/2020/01/3.png" alt="3" width="777" height="65" />
+	</div>
             <h3>Check Context of data</h3>
             The dataframe which is used for modelling has 50,000 instances or sample projects and 27 features or columns describing various details about the project. The target is the column named ‘State’ which is either a 1 or 0 based on if the campaign was successful/unsuccessful.
 
