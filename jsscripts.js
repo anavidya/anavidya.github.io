@@ -2,9 +2,8 @@
 
 $(document).ready(function() {
     $('#intro').show();
-    $('#robin').show();
+    $('.content div#details').html($('#robin).html());
     $("a.link").click(function(e) {
-        $('#robin').hide();
         e.preventDefault();
         var content = ($(this).data('rel'));
         if ($(this).data('rel') == 'NOSQLdb'){
