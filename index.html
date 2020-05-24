@@ -114,27 +114,32 @@
             <li>NumPy: For scientific computations</li>
             <li>sklearn : The machine learning library of Python</li>
             </ul>
-            <div class="fig figcenter fighighlight">
-            <img class="alignnone size-full wp-image-87" src="https://vkwritings.files.wordpress.com/2020/01/lib.png" alt="lib" width="360" height="82" /></div>
+            
+            <img class="alignnone size-full wp-image-87" src="https://vkwritings.files.wordpress.com/2020/01/lib.png" 
+		 alt="lib" width="360" height="82" />
 
             <p>The data used for this evaluation has been downloaded and stored as a  stored as a CSV file which is the commonly used format for exchanging data. To begin with, read the CSV file into a variable.</p>
 
-            <div class="fig figcenter fighighlight">
-            <img class="alignnone size-full wp-image-88" src="https://vkwritings.files.wordpress.com/2020/01/rawdf.png" alt="rawdf" width="661" height="61" /></div>
+            
+	
+            <img class="alignnone size-full wp-image-88" 
+		 src="https://vkwritings.files.wordpress.com/2020/01/rawdf.png" 
+		 alt="rawdf" width="661" height="61" />
 
             To build a model,  the projects that have already been evaluated have to be studied. In order to do that we divide the whole raw data into two data frames. One of which to used to model the prediction model and the other to test if our model is accurate.
 
             The variable /column named ‘Evaluation_set’ is used to identify if the project has been evaluated or not. 
 	The Data Frame named ‘modelling_df’ will be is used to build the model.
-            <div class="fig figcenter fighighlight">
+            
 		    <img class="alignnone size-full wp-image-81" 
 			 src="https://vkwritings.files.wordpress.com/2020/01/3.png" alt="3" width="777" height="65" />
-	</div>
+	
             <h3>Check Context of data</h3>
             The dataframe which is used for modelling has 50,000 instances or sample projects and 27 features or columns describing various details about the project. The target is the column named ‘State’ which is either a 1 or 0 based on if the campaign was successful/unsuccessful.
 
-            <div class="fig figcenter fighighlight">
-            <img class="alignnone size-full wp-image-82" src="https://vkwritings.files.wordpress.com/2020/01/4.png" alt="4" width="299" height="119" /></div>
+            
+            <img class="alignnone size-full wp-image-82" 
+		 src="https://vkwritings.files.wordpress.com/2020/01/4.png" alt="4" width="299" height="119" />
 
             Out of the 27 columns/features the data types of the features have to be checked. A check needs to done to see how many have valid values in them.
 
@@ -147,14 +152,16 @@
             There are many columns which have many nulls or values which predominantly have only one value or many outliers. An initial check could be made to see which columns to retain and columns that could be dropped. This can be done using statically data or graphically plotting the values
 
             The above function is used to check the distinct value counts, nulls, mean, standard deviation etc of all the columns and decision can be taken on what columns could be retained.
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-85" src="https://vkwritings.files.wordpress.com/2020/01/9.png" alt="9" width="799" height="252" /></div>
+            <img class="alignnone size-full wp-image-85" src="https://vkwritings.files.wordpress.com/2020/01/9.png" 
+		 alt="9" width="799" height="252" />
             <h2><span style="color: #800000;">Preprocessing</span></h2>
             Machine learning algorithms require inputs to be numerical and so if there are any columns which are categorical, they need to somehow be transformed into numerical before using them to predict a model.
 
             One of the common ways to handle categorical columns is ‘One Hot Encoding’. This technique can be employed when the values have no particular ordering. For every unique value of the column , another column is created where the value is 1 if for that instance the feature takes that value else 0. For example, the column ‘country’ could be the US. So, a new column (Country_US) can be created which will have a value 1 or 0 based on if the value of the column is ‘US’ or not.
 
             We could use a column transformer to convert all the categorical columns but since we have only one column named ‘Country’ we could use a function.
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-86" src="https://vkwritings.files.wordpress.com/2020/01/10.png" alt="10" width="941" height="259" /></div>
+            <img class="alignnone size-full wp-image-86" 
+		 src="https://vkwritings.files.wordpress.com/2020/01/10.png" alt="10" width="941" height="259" />
             <h3>Dropping columns ahve redundant or missing data</h3>
             The features  - currency symbol, trailing code and currency can be dropped. The features ‘is_backing’, ‘permissions’, ‘friends’ and ‘is_starred’ have many missing values, so they could also be dropped at this moment.
 
@@ -163,9 +170,10 @@
             There are a few columns which are JSON string which has to be looked in separately to extract only the columns which add value to the modelling.
 
             The columns to be retained are identified and a new data frame created containing only the columns to be retained.
-            <div class="fig figcenter fighighlight">
-		    <img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
-            <h3>Reduction of the feature set</div>
+           
+		    <img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" 
+			 alt="29" width="941" height="164" />
+            <h3>Reduction of the feature set</h3>
             Some of the columns are redundant and some of them can be clubbed to become one column.
 
             To compare the various projects, it would be better to convert the ‘money to be raised’ to a single currency. Since the USD rate is given for the various currencies, a new column is created ‘goal_in_usd’.
@@ -210,35 +218,43 @@
 
             The best combination of the hyperparameters is chosen.
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-94" src="https://vkwritings.files.wordpress.com/2020/01/20.png" alt="20" width="721" height="274" /></div>
+            <img class="alignnone size-full wp-image-94" 
+		 src="https://vkwritings.files.wordpress.com/2020/01/20.png" alt="20" width="721" height="274" />
 
             The results are sorted based on the scores of the test and the best combination is picked.
 
             The table below displays the results and it is clear that the ‘max depth’ of 13 gives the best accuracy
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-95" src="https://vkwritings.files.wordpress.com/2020/01/22.png" alt="22" width="941" height="276" /></div>
+           
+		    <img class="alignnone size-full wp-image-95" 
+			 src="https://vkwritings.files.wordpress.com/2020/01/22.png" alt="22" width="941" height="276" />
+	
 
             We could have a look at the features which play an important part in this model.
 
             <hr />
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-96" src="https://vkwritings.files.wordpress.com/2020/01/23.png" alt="23" width="790" height="166" /></div>
-            It can be seen that profile_state and Goal_in USD are 2 columns which have the most influence. One can also see the categories and subcategories which are highly influential.
+           
+		    <img class="alignnone size-full wp-image-96" src="https://vkwritings.files.wordpress.com/2020/01/23.png" 
+			 alt="23" width="790" height="166" />
+            It can be seen that profile_state and Goal_in USD are 2 columns which have the most influence.
+	One can also see the categories and subcategories which are highly influential.
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-97" src="https://vkwritings.files.wordpress.com/2020/01/24.png" alt="24" width="563" height="471" /></div>
+            <img class="alignnone size-full wp-image-97"
+		 src="https://vkwritings.files.wordpress.com/2020/01/24.png" alt="24" width="563" height="471" />
             <h3>LOGISTIC REGRESSION</h3>
             Similar to the Decision Tree, we build a Logistic Regression model too. We use GridSearch and provide certain hyperparameters and chose the combination which gives the best result
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-98"
+            <img class="alignnone size-full wp-image-98"
                        src="https://vkwritings.files.wordpress.com/2020/01/25.png" alt="25" width="941" 
-                       height="261" /></div>
+                       height="261" />
 
             As can be seen from the results, the best results are for a value of C = 4
 
-            <div class="fig figcenter fighighlight">
+            
             <img class="alignnone size-full wp-image-104" 
             src="https://vkwritings.files.wordpress.com/2020/01/32.png" alt="32" width="941" height="115" />
-            </div>
+            
 
             Logistic Regression seems to give better results than the Decision tree, though the accuracy is only 76%.
 
