@@ -1,6 +1,7 @@
 
 
 $(document).ready(function() {
+    $('#intro').show();
     $("a.link").click(function(e) {
     e.preventDefault();
     $('.content div').fadeOut('slow');
