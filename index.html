@@ -44,7 +44,7 @@
     			<h2 class="wrap title-wrap">Examples</h2>
   		</header>
 		<ul class=space_list>
-		<li><a class = "link" data-rel="test" href = "#" >test a </li>
+		<li><a class = "link" data-rel="robin" href = "#" >Gazing at a Robin </li>
 		<li><a class = "link" data-rel="kickstarter" href = "#" >Model a <span style="color: #ff0000;">Successful </span>campaign</li>
 		<li><a class = "link" data-rel="parkinsons" href = "#">Model to predict <span style="color: #ff0000;">Parkinsons</span></a></li>
 		<li><a class = "link" data-rel="NOSQLdb" href = "#">Document databases using <span style="color: #ff0000;">Postgres</span></a> </li>
@@ -57,12 +57,7 @@
 		
 	</div>
 
-<div id = "test" class = insidetext>
-                 <h2 class="wrap title-wrap">ML Model to make your campaign</h2>
-	<p>test estestestestestvvvestestestvvvestestestestestestestestestestestestestest
-	estestestestestestestestestestestestestestestestestest
-	estestestestestestestestestest</p>
-</div>
+
 <div id ="robin" class = insidetext>
 	<img class="alignnone" 
 	     src="/images/robin.jpg" 
@@ -338,21 +333,21 @@
 		<li>mlxtend :The library for builiding a stacking classifier</li>
 		<li>matplotlib : Plotting graphs od data and results to visualise and understand  better</li>
 		</ul>
-	 <div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/lib1.PNG" 
+	 
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/lib1.PNG" 
 	     alt="lib" width="360" height="82" />
-	<img class="alignnone size-full wp-image-87" src="images/lib2.PNG" 
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/lib2.PNG" 
 	     alt="lib" width="360" height="82" />
-	 </div>
+	
 	 </p>
 	<p>The data used for this evaluation is 
 		stored as a CSV file format. It does contain a header and comma is used to seperate the various features.
 		To begin with, read the CSV file and convert the data into a pandas dataframe.</br></p>
-	<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/read.PNG" 
+	
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/read.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
+	
 	<p>The data is inspected.The various features/attributes is inspected. There  are 24 columns. 
 		The column 'name' which is used to identify the patient
 		adds no value in training the model. The column named 'status' is the target which we need to predict. It can have 2 values '1' if
@@ -375,11 +370,11 @@
 	misclassified as 'PD' since the status value '1'(PD) is the dominant class. 
 	This causes unecessary heartache for a healthy patient as well as the model will become unrealiable. 
 	Since PD is not a minority class, wrong classification will not cost a life.<br>
-	<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/class_imb.PNG" 
+	
+	<img class="alignnone  fig figcenter fighighlight size-full wp-image-87" src="images/class_imb.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
+	
 	
 	'Accuracy' cannot be used as the scoring strategy in this case. We could oversampling the minority class but that might lead to overfitting. Undersampling the majority class might 
 	lead to model being biased.
@@ -397,20 +392,19 @@
 		The data is generallly split into training and testing sets. Around 20% is set aside as test data.
 		
 	</p>
-	<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/split.PNG" 
+	
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/split.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
+	
 	<h3>Baseline Model</h3>
 	<p> Let us consdier to first use Logistic regression as the classifier to create a baseline model. This is not optimised
 		and will be used to compare with other models.
 	</p>
-	<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/simple logistic.PNG" 
+	
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/simple logistic.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
 	<h3>Ensemble Model</h3>
 	<p> When several ML techniques are combined together it is called as ensemble and this improves the accuravy of the predictions 
 		sometimes. They are combined to reduce the variance(bagging), bias(boosting) and predictions accuracy(stacking).
@@ -418,11 +412,10 @@
 		it s grouped as sequential.The weghts of the mislabbelled instances are boosted so that the next sequenetial model learns from it.
 		In parallel, the base learners are independent of  each other. Bt averaging, the errors are reduced.
 		<br></p>
-	<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/stacking_code.PNG" 
+	
+	<img class="alignnone fig figcenter fighighlightsize-full wp-image-87" src="images/stacking_code.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
 <h4>Bagging</h4>
 <p>
 	Bagging stands for Bootstarp aggregating. Bootstarp samples are used to obtain various data susets to train the base learners.
@@ -432,20 +425,18 @@
 	thus further randomising the tree. Though bias might increase, the variance is decreased.
 	
 </p>
-<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/stacking_with CV_code.PNG" 
+
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/stacking_with CV_code.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
 <h4>Boosting</h4>
 <p>Several weak learners are better than random guessing. The misclassified instances are given more weight and trained again. Finally the weighted sum or 
 	weighted majority vote is used to decide on the final prediction
 </p>
-<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/xgb.PNG" 
+
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/xgb.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
 <h3> Comparing the models</h3>
 <p>Since there is a slight class imbalance, Classification report or accuracy score is not the metrics to be used to compare this models.
 	
@@ -485,16 +476,15 @@
 			Since Boosting seems to give the best score, if we decide to using a boosting model, xgboost classifier is able to show which attributes where considered important by the model 
 			A plot of the importances of features with weights for each feature is displayed .The weights sum to one.
 		</p>
-		<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/feat_impcode.PNG" 
+		
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/feat_impcode.PNG" 
 	     alt="lib" width="360" height="82" />
 
-	 </div>
-	<div class="fig figcenter fighighlight">
-	<img class="alignnone size-full wp-image-87" src="images/feature_importance.png" 
+	
+	
+	<img class="alignnone fig figcenter fighighlight size-full wp-image-87" src="images/feature_importance.png" 
 	     alt="lib" width="360" height="582" />
 
-	 </div>
 
 	  </div>
 
