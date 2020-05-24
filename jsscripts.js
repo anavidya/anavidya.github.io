@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('#intro').show();
     $('#robin').show();
     $("a.link").click(function(e) {
+        $('#robin').hide();
         e.preventDefault();
         var content = ($(this).data('rel'));
         if ($(this).data('rel') == 'NOSQLdb'){
@@ -13,14 +14,13 @@ $(document).ready(function() {
         }
         else
         {
-        $('.content div').fadeOut('slow');
-        $('#' + $(this).data('rel')).fadeIn('slow');
-        }
-        if ($(this).data('rel') == 'test'){
             $('.content div').fadeOut('slow');
             $('#details').html($(content).html());
             $('.content div').fadeIn('slow');
         
         }
+        
     });
 });
+#$('.content div').fadeOut('slow');
+#$('#' + $(this).data('rel')).fadeIn('slow');
