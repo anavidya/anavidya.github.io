@@ -10,7 +10,7 @@ $(document).ready(function() {
         if ($(this).data('rel') == 'NOSQLdb'){
             $('.content div').fadeOut('slow');
             $(".content div#details").load("NOSQLdb.html");
-            $(".content div").show()
+            $(".content div").show();
         }
         else
         {
