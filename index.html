@@ -54,7 +54,7 @@
 		<div id ="robin">
 			<img class="alignnone size-full wp-image-87" 
 			     src="/images/robin.jpg" 
-			     alt="Robin" />
+			     alt="Robin" width ='300px' height = '300px'/>
 			<p>Src: Photo by Tom Bradley on Unsplash</p>
 
 		</div>
@@ -246,7 +246,228 @@
       </article>
 		</div>
 	
-			
+
+	
+	<div class="content" style="background-color:#FFFAFA;">
+        <article class="post-content">
+	
+	<div id = "parkinsons">
+		<h2>ML Model to detect Parkinsons</h2>
+		<p><a href="https://www.parkinsons.org.uk/information-and-support/what-parkinsons/">Parkinsons</a> is a nuerodegerative 
+		disorder in which a part of the 
+		brain gets damaged progressively over years. <br>
+		More than 1 million people in UK are affected by Parkinsons. People suffering from Parkinson's have not enough dopamine because the
+		nerve cells producing them have been damaged.
+	      	<p>The main steps that are followed for building a predictive model are</p>
+		<p><ul>
+		<li>Extracting data</li>
+		<li>Exploratory data analysis</li>
+		<li>Feature engineering</li>
+		<li>Building a baseline model</li>
+		<li>Building different models</li>
+		<li>Comparing the metrics to check if model gives best result</li>  
+		</ul></p>
+	      	<h3><span style="color: #800000;">Main Objective</span></h3>
+	      	<p> To build a model which can accurately detect if a person has PD (parkinson's) or not. The dataset used is from <a 
+		href = "https://archive.ics.uci.edu/UCI">UCI ( Center for Machine Learning and Intelligent Systems).</a>
+		The dataset was created by Max Little of the University of Oxford, in collaboration with the National 
+			Centre for Voice and Speech, Denver, Colorado, who recorded the speech signals of many PD patients.
+			Use this <a href ="https://archive.ics.uci.edu/ml/datasets/parkinsons">link</a>
+			to download the data and learn further details
+		The data consistes of voice recordings of 31 people out of which 23 are Parkinson's patients.
+		The dataset is composed of a range of biomedical voice measurements. Each column in the table is a 
+		particular voice measure, and each row corresponds one of 195 voice recording from these individuals ("name" column). 
+		The main aim of the data is to discriminate healthy people from those with PD, 
+		according to "status" column which is set to 0 for healthy and 1 for PD. 
+	      <h3>Information of the features</h3></p>
+	      <p>Attribute Information:
+		<ul>
+			<li>Matrix column entries (attributes): </li>
+	<li>name - ASCII subject name and recording number </li>
+	<li>MDVP:Fo(Hz) - Average vocal fundamental frequency </li>
+	<li>MDVP:Fhi(Hz) - Maximum vocal fundamental frequency </li>
+	<li>MDVP:Flo(Hz) - Minimum vocal fundamental frequency </li>
+	<li>MDVP:Jitter(%),MDVP:Jitter(Abs),MDVP:RAP,MDVP:PPQ,Jitter:DDP - Several measures of variation in fundamental frequency </li>
+	<li>MDVP:Shimmer,MDVP:Shimmer(dB),Shimmer:APQ3,Shimmer:APQ5,MDVP:APQ,Shimmer:DDA - Several measures of variation in amplitude </li>
+	<li>NHR,HNR - Two measures of ratio of noise to tonal components in the voice </li>
+	<li>status - Health status of the subject (one) - Parkinson's, (zero) - healthy </li>
+	<li>RPDE,D2 - Two nonlinear dynamical complexity measures </li>
+	<li>DFA - Signal fractal scaling exponent </li>
+	<li>spread1,spread2,PPE - Three nonlinear measures of fundamental frequency variation 
+	      </ul>
+	      </p>	
+	  	<h2><span style="color: #800000;">Reading and uploading data</span></h2>
+	 <p>
+		Python is the languaged used to analyse and build the model.The following libraries are imported
+		<ul>
+		<li>pandas: for easy manipulation of data structures.</li>
+		<li>NumPy: For scientific computations</li>
+		<li>sklearn : The machine learning library of Python</li>
+		<li>xgboost : To create a Boosting Model</li>	
+		<li>mlxtend :The library for builiding a stacking classifier</li>
+		<li>matplotlib : Plotting graphs od data and results to visualise and understand  better</li>
+		</ul>
+	 <div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/lib1.PNG" 
+	     alt="lib" width="360" height="82" />
+	<img class="alignnone size-full wp-image-87" src="images/lib2.PNG" 
+	     alt="lib" width="360" height="82" />
+	 </div>
+	 </p>
+	<p>The data used for this evaluation is 
+		stored as a CSV file format. It does contain a header and comma is used to seperate the various features.
+		To begin with, read the CSV file and convert the data into a pandas dataframe.</br></p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/read.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+	<p>The data is inspected.The various features/attributes is inspected. There  are 24 columns. 
+		The column 'name' which is used to identify the patient
+		adds no value in training the model. The column named 'status' is the target which we need to predict. It can have 2 values '1' if
+		the patient has PD, 0 if healthy.
+		So we could assign 'y', the target pandas series as the column 'status'. All the columns except 'name' could be assigned to 'X'.
+	<br>
+	</p>
+	
+	<p>
+	<h3> Feature Engineering</h3>
+	There are no columns with categorical values . So there is no need to One-hot encode or label encode any feature. <br>
+	The features have varying minimum
+	and maximum values. The reason could be that the features have different magnitude or units. Most of the ML models are not interested in the units or magnitude .Obviously, the features with
+	higher magnitude might weigh more than thoses with lesser magnitude. If we are to use algorithms which computes distance between feature
+	point then scaling is a must.K-Nearest neigbhors is sensitive to the distance between feature points where as Tree-based models 
+	do not care about the distance.
+	<br>
+	Upon inspecting the 'status column it can be noticed that there is a imbalance in the distribution of values. 75% of the people observed have PD
+	wheare as 25% are marked as healthy. There is a slight class imbalance. Care must taken to ensure that a healthy person is not
+	misclassified as 'PD' since the status value '1'(PD) is the dominant class. 
+	This causes unecessary heartache for a healthy patient as well as the model will become unrealiable. 
+	Since PD is not a minority class, wrong classification will not cost a life.<br>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/class_imb.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+	
+	'Accuracy' cannot be used as the scoring strategy in this case. We could oversampling the minority class but that might lead to overfitting. Undersampling the majority class might 
+	lead to model being biased.
+	The ROC AUC scores could be used to compare and select a model.The ROC curve evaluates the probablity predictions made by the model on the test dataset.
+	It is a plot of the flase-positive rate to the true positive rate.Thus helps to undertand the tradeoffs.
+	Geometric-Mean or G-mean could also be used as a mteric to seek the balance between sensitivity and specificity.Precision-Recall curve couls also be used
+	to check the performance of the classifier on the positive class.
+	<br>
+	The hyperparameter 'class-weight' is set as 'balanced' so that less weight is put on the majority class
+	<br> n_samples/ (n_calss *np.bincount(y))
+	
+	</p>
+	<h3>Split the data</h3>
+	<p>
+		The data is generallly split into training and testing sets. Around 20% is set aside as test data.
+		
+	</p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/split.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+	<h3>Baseline Model</h3>
+	<p> Let us consdier to first use Logistic regression as the classifier to create a baseline model. This is not optimised
+		and will be used to compare with other models.
+	</p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/simple logistic.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+	<h3>Ensemble Model</h3>
+	<p> When several ML techniques are combined together it is called as ensemble and this improves the accuravy of the predictions 
+		sometimes. They are combined to reduce the variance(bagging), bias(boosting) and predictions accuracy(stacking).
+		<br> Ensemble models are grouped as sequential or parallel. If the base learners are generated sequentially and each learns from the previous models 
+		it s grouped as sequential.The weghts of the mislabbelled instances are boosted so that the next sequenetial model learns from it.
+		In parallel, the base learners are independent of  each other. Bt averaging, the errors are reduced.
+		<br></p>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/stacking_code.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+<h4>Bagging</h4>
+<p>
+	Bagging stands for Bootstarp aggregating. Bootstarp samples are used to obtain various data susets to train the base learners.
+	By avaraging the multiple estimates from the various base learners ,the overall variance of the estimate is reduced.
+	<br>
+	Random forest is one of the common algorith in ensemble. Instead of using all the features, a random subset of features is selectes , 
+	thus further randomising the tree. Though bias might increase, the variance is decreased.
+	
+</p>
+<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/stacking_with CV_code.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+<h4>Boosting</h4>
+<p>Several weak learners are better than random guessing. The misclassified instances are given more weight and trained again. Finally the weighted sum or 
+	weighted majority vote is used to decide on the final prediction
+</p>
+<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/xgb.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+<h3> Comparing the models</h3>
+<p>Since there is a slight class imbalance, Classification report or accuracy score is not the metrics to be used to compare this models.
+	
+	This is a binary classification having labels as 0 or 1 . The default threshold for the probablity is 0.5.
+	The value of probablities less than the threshold of 0.5 are assigned to class 0 and values greater than or equal to 0.5 are assigned to class 1.
+	The class distribution for this dataset is slightly skewed and the cost of one type of misclassification 
+	is more important than another type of misclassification. So the optimal threshold has to be chosen. 
+	ROC curves can be used to analyse the predicted probablities of the model and the ROC-AUC curves could be used to select the best model.
+	
+	The curve gives an picture of the true and fale positive rates for the various thresholds.The area under the curve gives the accuracy of the model.
+
+
+	If we adopt the boosting model then the optimum threshold could be set as 0.71
+	<ul>
+		<li>prediction < 0.71 = Class 0</li>
+		<li>prediction >= 0.71 = Class 1</li>
+</ul>
+<div class="fig figcenter fighighlight">
+<div class="row">
+  <div class="column">
+    <img src="images/logistic.PNG" alt="logistic" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/stacking.PNG" alt="stacking" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/stacking_with CV.PNG" alt="stacking with CV" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/xboost_roc.PNG" alt="boost" style="width:100%">
+  </div>
+</div>
+</div>
+</p>
+	<h3>Understanding the importance of the features</h3>
+		<p>
+			Since Boosting seems to give the best score, if we decide to using a boosting model, xgboost classifier is able to show which attributes where considered important by the model 
+			A plot of the importances of features with weights for each feature is displayed .The weights sum to one.
+		</p>
+		<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/feat_impcode.PNG" 
+	     alt="lib" width="360" height="82" />
+
+	 </div>
+	<div class="fig figcenter fighighlight">
+	<img class="alignnone size-full wp-image-87" src="images/feature_importance.png" 
+	     alt="lib" width="360" height="582" />
+
+	 </div>
+
+	  </div>
+</article>
+</div>
 	
 
 </div>
