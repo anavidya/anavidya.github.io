@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     $('#intro').show();
-    $('.content div#details').html($('#robin).html());
+    $('.content div#details').html($('#robin').html());
     $("a.link").click(function(e) {
         e.preventDefault();
         var content = ($(this).data('rel'));
