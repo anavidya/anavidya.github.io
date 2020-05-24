@@ -6,7 +6,7 @@ $(document).ready(function() {
     $("a.link").click(function(e) {
         e.preventDefault();
 
-        if $(this).data('rel') = 'NOSQLdb'{
+        if ($(this).data('rel') == 'NOSQLdb'){
             $("#content div").load("NOSQLdb.html");
         }
         $('.content div').fadeOut('slow');
