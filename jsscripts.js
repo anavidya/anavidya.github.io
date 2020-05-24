@@ -14,7 +14,7 @@ $(document).ready(function() {
         else
         {
             $('.content div').fadeOut('slow');
-            $('.content div#details').html($(content).html());
+            $('.content div#details').html($('#' + content).html());
             $('.content div').fadeIn('slow');
         
         }
