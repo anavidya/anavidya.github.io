@@ -113,8 +113,6 @@ a:visited { color: #205caa; }
 }
 .content {
     position: relative;
-    width: 400px;
-    height: 400px;
 }
 .content div {
     display: none;
