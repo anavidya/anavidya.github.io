@@ -163,21 +163,22 @@
             There are a few columns which are JSON string which has to be looked in separately to extract only the columns which add value to the modelling.
 
             The columns to be retained are identified and a new data frame created containing only the columns to be retained.
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
+            <div class="fig figcenter fighighlight">
+		    <img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
             <h3>Reduction of the feature set</div>
             Some of the columns are redundant and some of them can be clubbed to become one column.
 
             To compare the various projects, it would be better to convert the ‘money to be raised’ to a single currency. Since the USD rate is given for the various currencies, a new column is created ‘goal_in_usd’.
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-101" src="https://vkwritings.files.wordpress.com/2020/01/30.png" alt="30" width="941" height="114" />
-            </div>To make sense of the dates we could club the various dates and create single columns containing the various duration in milliseconds.
+            <img class="alignnone size-full wp-image-101" src="https://vkwritings.files.wordpress.com/2020/01/30.png" alt="30" width="941" height="114" />
+            To make sense of the dates we could club the various dates and create single columns containing the various duration in milliseconds.
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-90" src="https://vkwritings.files.wordpress.com/2020/01/13.png" alt="13" width="941" height="80" />
-            </div>
+            <img class="alignnone size-full wp-image-90" src="https://vkwritings.files.wordpress.com/2020/01/13.png" alt="13" width="941" height="80" />
+            
             Some of the columns from the multiple columns stored in the JSON string can be extracted and added the data frame on which modelling is performed. Looking at the ‘category’ column, the value of column ‘slug’ could be split to obtain the ‘parent category’ and the ‘category column’.
 
             These columns are categorical columns so they could be encoded too.
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-91" src="https://vkwritings.files.wordpress.com/2020/01/14.png" alt="14" width="941" height="304" /></div>
+            <img class="alignnone size-full wp-image-91" src="https://vkwritings.files.wordpress.com/2020/01/14.png" alt="14" width="941" height="304" />
             <h3>Scaling</h3>
             From the data, it is very obvious that the columns have various units. In some machine learning algorithms, the units have to be scaled because certain weights may update faster than others. Algorithms like Decision tree or k-nearest neighbours are not affected by the scaling.
 
@@ -185,11 +186,11 @@
 
             MinMaxScaler is used in this case and it follows the following formulae
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-92" src="https://vkwritings.files.wordpress.com/2020/01/15.png" alt="15" width="216" height="91" /></div>
+            <img class="alignnone size-full wp-image-92" src="https://vkwritings.files.wordpress.com/2020/01/15.png" alt="15" width="216" height="91" />
 
             The range of the features is now shrunk to values between 0 and 1. If there were negative values the scaler shrinks them to values between 1 and -1. However, this scaler is sensitive to outliers.
 
-            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-102" src="https://vkwritings.files.wordpress.com/2020/01/31.png" alt="31" width="941" height="79" /></div>
+           <img class="alignnone size-full wp-image-102" src="https://vkwritings.files.wordpress.com/2020/01/31.png" alt="31" width="941" height="79" />
 
             After the first round of preprocessing, we have 169 columns.
             <ul>
