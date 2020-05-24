@@ -120,6 +120,7 @@ a:visited { color: #205caa; }
 
 .col1 {
     flex: 1;
+    display: inline-block;
 }
 
 
