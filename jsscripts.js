@@ -5,6 +5,10 @@ $(document).ready(function() {
     $('#robin').show();
     $("a.link").click(function(e) {
     e.preventDefault();
+    
+    if ($(this).id = 'NOSQLdb'){
+        $("#content").load("NOSQLdb.html");
+    }
     $('.content div').fadeOut('slow');
     $('#' + $(this).data('rel')).fadeIn('slow');
     });
