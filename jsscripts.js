@@ -7,7 +7,8 @@ $(document).ready(function() {
         e.preventDefault();
 
         if ($(this).data('rel') == 'NOSQLdb'){
-            $("#content div").load("NOSQLdb.html");
+            $('.content div').fadeOut('slow');
+            $(".content div").load("NOSQLdb.html");
         }
         else
         {
