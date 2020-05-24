@@ -101,6 +101,9 @@ a:visited { color: #205caa; }
   width: 75%;
 }
 
+.row{
+  margin: 0 20px 20px 30px;
+}
 
 /* Clear floats after image containers */
 .row::after {
