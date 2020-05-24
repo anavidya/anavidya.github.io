@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>My Little Projects</title>
   <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -24,9 +25,9 @@
     			<h2 class="wrap title-wrap">Examples</h2>
   		</header>
 		<ul class=space_list>
-		<li><a href = #kickstarter >Model a <span style="color: #ff0000;">Successful </span>campaign</li>
-		<li><a href = #parkinsons >Model to predict <span style="color: #ff0000;">Parkinsons</span></a></li>
-		<li><a href="#NOSQLdb">Document databases using <span style="color: #ff0000;">Postgres</span></a> </li>
+		<li><a class = "link" data-rel="kickstarter" href = "#" >Model a <span style="color: #ff0000;">Successful </span>campaign</li>
+		<li><a class = "link" data-rel="parkinsons" href = "#">Model to predict <span style="color: #ff0000;">Parkinsons</span></a></li>
+		<li><a class = "link" data-rel="NOSQLdb" href = "#">Document databases using <span style="color: #ff0000;">Postgres</span></a> </li>
 		</ul>
 	</div>
 	
@@ -53,8 +54,11 @@ The data could be movies that someone loves to watch .Using a well-trained algor
 	an educated guess on what the person might want to see next.
 	The data could be images or even text /words that someone uses often in their emails or text messages.<br>
 
-<div id = "kickstarter">
-	<h2>ML Model to make your campaign</h2>
+<div id = "kickstarter" class = "content">
+		<div class="wrap title-wrap">
+    			<h2>ML Model to make your campaign</h2>
+  		</div>
+
 <p><a href="http://kickstarter.com">Kickstarter</a> is a crowdfunding platform with a community of more than 10 million 
 	people who are creative, tech enthusiasts.<br>
 
@@ -202,29 +206,34 @@ We could have a look at the features which play an important part in this model.
 <h3>LOGISTIC REGRESSION</h3>
 Similar to the Decision Tree, we build a Logistic Regression model too. We use GridSearch and provide certain hyperparameters and chose the combination which gives the best result
 
-<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-98" src="https://vkwritings.files.wordpress.com/2020/01/25.png" alt="25" width="941" height="261" /></div>
+<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-98"
+					     src="https://vkwritings.files.wordpress.com/2020/01/25.png" alt="25" width="941" 
+					     height="261" /></div>
 
 As can be seen from the results, the best results are for a value of C = 4
 
-<div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-104" src="https://vkwritings.files.wordpress.com/2020/01/32.png" alt="32" width="941" height="115" /></div>
+<div class="fig figcenter fighighlight">
+<img class="alignnone size-full wp-image-104" 
+     src="https://vkwritings.files.wordpress.com/2020/01/32.png" alt="32" width="941" height="115" />
+</div>
 
 Logistic Regression seems to give better results than the Decision tree, though the accuracy is only 76%.
-	      
-	      We could further preprocess by applying a PCA of the columns which have very high variance.
-	      We could extract more columns and scale them using another scaler.
-	      The process of preprocessing and hyper tuning the parameters is an iterative process.
-	      Care has to taken not to overfit the model.<br>
+
+      We could further preprocess by applying a PCA of the columns which have very high variance.
+      We could extract more columns and scale them using another scaler.
+      The process of preprocessing and hyper tuning the parameters is an iterative process.
+      Care has to taken not to overfit the model.<br>
 
 <br>To view the whole code please use the link <a href="https://github.com/anavidya/kickstarter">Kickstarter</a><br>
-	      To improve the results of the Machine learning solution one can
+      To improve the results of the Machine learning solution one can
 <ul>
-	<li>Try different algorithms</li>
-	<li>Look into features that can be used/dropped and feature engineering</li>
-	<li>Tune the hyperparameters of the algorithm selected.</li>
+<li>Try different algorithms</li>
+<li>Look into features that can be used/dropped and feature engineering</li>
+<li>Tune the hyperparameters of the algorithm selected.</li>
 </ul></p>
 	      </div>
 	      
-	      <div id = "parkinsons">
+	      <div id = "parkinsons" class = "content">
 		<h2>ML Model to detect Parkinsons</h2>
 		<p><a href="https://www.parkinsons.org.uk/information-and-support/what-parkinsons/">Parkinsons</a> is a nuerodegerative 
 		disorder in which a part of the 
@@ -443,7 +452,7 @@ Logistic Regression seems to give better results than the Decision tree, though 
 	</div>
 	</div>
 	</div>
-<div id = "NOSQLdb">
+<div id = "NOSQLdb" class = "content">
 	<a href="NOSQLdb.html">Home</a>
 </div>
 </div>
