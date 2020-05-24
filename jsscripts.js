@@ -22,5 +22,5 @@ $(document).ready(function() {
         
     });
 });
-#$('.content div').fadeOut('slow');
-#$('#' + $(this).data('rel')).fadeIn('slow');
+//$('.content div').fadeOut('slow');
+//$('#' + $(this).data('rel')).fadeIn('slow');
