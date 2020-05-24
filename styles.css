@@ -108,7 +108,11 @@ a:visited { color: #205caa; }
   clear: both;
   display: table;
 }
-
+.content {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
 .content div {
     display: none;
     position: absolute;
