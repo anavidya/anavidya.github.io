@@ -4,3 +4,8 @@ $("a.link").click(function(e) {
     $('#' + $(this).data('rel')).fadeIn('slow');
 });
 
+$(document).ready(function() {
+        $('a').click(function() {
+            alert('ho ho ho');
+        });
+
