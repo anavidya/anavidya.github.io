@@ -20,7 +20,7 @@ $(document).ready(function() {
             $('.content div').fadeOut('slow');
             $('#details').html($(content).html());
             $('.content div').fadeIn('slow');
-        return false;
+        
         }
     });
 });
