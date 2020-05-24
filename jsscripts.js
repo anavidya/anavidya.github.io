@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     $('#intro').show();
-    document.getElementById("robin").style.visibility = 'visible';
+    $('#robin').show();
     $("a.link").click(function(e) {
     e.preventDefault();
     $('.content div').fadeOut('slow');
