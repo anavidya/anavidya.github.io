@@ -114,6 +114,9 @@ a:visited { color: #205caa; }
 .content {
     position: relative;
 }
+insidetext{
+  display: none;
+}
 .content div {
     display: none;
     position: absolute;
