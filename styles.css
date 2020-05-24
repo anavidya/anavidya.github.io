@@ -115,11 +115,15 @@ a:visited { color: #205caa; }
     display: flex;
     width: 100%;
     height: 200px;
+    position: relative;
 }
 
 .col1 {
     flex: 1;
     display: inline-block;
+    float: left;
+    width: 25%;
+    padding: 5px;
 }
 
 
