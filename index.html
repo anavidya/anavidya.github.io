@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>My Little Projects</title>
+  <LINK href="styles.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jsscripts.js"></script> 
+</head>
+
+<body>
+
+
+
+<!-- Change this code here by copy and pasting your template on line 15 -->
+<header class="site-header">
+
+  <div class="wrap title-wrap">
+    <a class="site-title" href="/">Machine Learning examples</a>
+  </div>
+</header>
+<div class="row">
+	<div class="column left" style="background-color:#FFFFFF;">
+		<header class="post-header">
+    			<h2 class="wrap title-wrap">Examples</h2>
+  		</header>
+		<ul class=space_list>
+		<li><a class = "link" data-rel="kickstarter" href = "#" >Model a <span style="color: #ff0000;">Successful </span>campaign</li>
+		<li><a class = "link" data-rel="parkinsons" href = "#">Model to predict <span style="color: #ff0000;">Parkinsons</span></a></li>
+		<li><a class = "link" data-rel="NOSQLdb" href = "#">Document databases using <span style="color: #ff0000;">Postgres</span></a> </li>
+		</ul>
+	</div>
+	
+  <div class="column right" style="background-color:#FFFAFA;">
+    
+    <div class="content" style="background-color:#FFFAFA;">">
+      <div class="wrap title-wrap">
+        <h2>ML modelling </h2>
+      </div>
+
+      <div id = "intro">
+        <article class="post-content">
+        <p>These are few examples of how ML can be used for predictions</p>
+        <p>Data is abundant now and is being collected constantly. Machine learning uses concepts of statistics and 
+        algorithms are written to see if any sense can be made of the data or if there is any pattern which can be learned. 
+        This learning can then be used to probably predict what the next data might be.<br>
+        The data could be movies that someone loves to watch .Using a well-trained algorithm, one could make 
+        an educated guess on what the person might want to see next.
+        The data could be images or even text /words that someone uses often in their emails or text messages.<br>
+        </article>
+      </div>
+    </div>
+
+					
+    <div class="content" style="background-color:#FFFAFA;">
+        <article class="post-content">
+            <div id = "kickstarter">
+            <div class="wrap title-wrap">
+              <h2>ML Model to make your campaign</h2>
+            </div>
+
+            <p><a href="http://kickstarter.com">Kickstarter</a> is a crowdfunding platform with a community of more than 10 million 
+            people who are creative, tech enthusiasts.<br>
+
+            Kickstarter works on all or nothing basis: a campaign is launched with a certain amount an artist or developer wants to raise. 
+            If it doesn’t meet its goal, the project owner gets nothing. For example: if a projects’ goal is $5000, 
+            even if it gets funded till $4999, the project won’t be a success.<br>
+
+            If you have any project in mind to post to Kickstarter, the following classifier might help to 
+            predict the success of your project being funded or not.<br><br></p>
+            <p>The main steps that followed for building a predictive model are</p>
+            <p><ul>
+            <li>Extracting data</li>
+            <li>Exploratory data analysis</li>
+            <li>Feature engineering</li>
+            <li>Building a model</li>
+            </ul></p>
+            This is an iterative process because data has to re-examined and model rebuilt after tuning the parameters and processing the features until the best fit is found. During this iterative process, one must not sacrifice the simplicity for complexity.
+            <h2><span style="color: #800000;">Exploratory Data Analysis</span></h2>
+            Understanding the data is very vital before moving on to classifying or evaluating it. This process is called 
+            Exploratory Data Analysis (EDA). This important step enables one to spot anomalies 
+
+
+            before beginning the Machine Learning model. It also brings out the bigger picture of the data. 
+
+            EDA could be done in a Graphical or Non-Graphical means. Non-Graphical methods are generally the summary statistics.
+            EDA could also include methods to
+            <ul>
+            <li>Reduce Dimensionality: Reduce the number of features to a linear combination of data so that data has fewer features (Columns) which can explain most of the variance.</li>
+            <li>Analyse the Cluster: Data can be organised into clusters so that similar observations are clubbed into clusters.</li>
+            </ul>
+            <h2><span style="color: #800000;">Reading and uploading data</span></h2>
+            Python is the languaged used to analyse and build the model.The following libraries are imported
+            <ul>
+            <li>pandas: for easy manipulation of data structures.</li>
+            <li>NumPy: For scientific computations</li>
+            <li>sklearn : The machine learning library of Python</li>
+            </ul>
+            <div class="fig figcenter fighighlight">
+            <img class="alignnone size-full wp-image-87" src="https://vkwritings.files.wordpress.com/2020/01/lib.png" alt="lib" width="360" height="82" /></div>
+
+            <p>The data used for this evaluation has been downloaded and stored as a  stored as a CSV file which is the commonly used format for exchanging data. To begin with, read the CSV file into a variable.</p>
+
+            <div class="fig figcenter fighighlight">
+            <img class="alignnone size-full wp-image-88" src="https://vkwritings.files.wordpress.com/2020/01/rawdf.png" alt="rawdf" width="661" height="61" /></div>
+
+            To build a model,  the projects that have already been evaluated have to be studied. In order to do that we divide the whole raw data into two data frames. One of which to used to model the prediction model and the other to test if our model is accurate.
+
+            The variable /column named ‘Evaluation_set’ is used to identify if the project has been evaluated or not. The Data Frame named ‘modelling_df’ will be is used to build the model.
+            <h3><img class="alignnone size-full wp-image-81" src="https://vkwritings.files.wordpress.com/2020/01/3.png" alt="3" width="777" height="65" /></h3>
+            <h3>Check Context of data</h3>
+            The dataframe which is used for modelling has 50,000 instances or sample projects and 27 features or columns describing various details about the project. The target is the column named ‘State’ which is either a 1 or 0 based on if the campaign was successful/unsuccessful.
+
+            <div class="fig figcenter fighighlight">
+            <img class="alignnone size-full wp-image-82" src="https://vkwritings.files.wordpress.com/2020/01/4.png" alt="4" width="299" height="119" /></div>
+
+            Out of the 27 columns/features the data types of the features have to be checked. A check needs to done to see how many have valid values in them.
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-83" src="https://vkwritings.files.wordpress.com/2020/01/5.png" alt="5" width="941" height="173" /></div>
+            Most of the columns are numerical but a few are non-numerical. Since an ML model cannot be built on non-numerical column one needs to now study on how the columns can be made numerical or eliminated altogether.
+
+            The feature named ‘ Country’ describes which country the project belongs to. There are a few unique values. It is definitely a categorical column.
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-84" src="https://vkwritings.files.wordpress.com/2020/01/8.png" alt="8" width="941" height="159" /></div>
+            <h3>Check for null values and fetaures having single value or outliers</h3>
+            There are many columns which have many nulls or values which predominantly have only one value or many outliers. An initial check could be made to see which columns to retain and columns that could be dropped. This can be done using statically data or graphically plotting the values
+
+            The above function is used to check the distinct value counts, nulls, mean, standard deviation etc of all the columns and decision can be taken on what columns could be retained.
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-85" src="https://vkwritings.files.wordpress.com/2020/01/9.png" alt="9" width="799" height="252" /></div>
+            <h2><span style="color: #800000;">Preprocessing</span></h2>
+            Machine learning algorithms require inputs to be numerical and so if there are any columns which are categorical, they need to somehow be transformed into numerical before using them to predict a model.
+
+            One of the common ways to handle categorical columns is ‘One Hot Encoding’. This technique can be employed when the values have no particular ordering. For every unique value of the column , another column is created where the value is 1 if for that instance the feature takes that value else 0. For example, the column ‘country’ could be the US. So, a new column (Country_US) can be created which will have a value 1 or 0 based on if the value of the column is ‘US’ or not.
+
+            We could use a column transformer to convert all the categorical columns but since we have only one column named ‘Country’ we could use a function.
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-86" src="https://vkwritings.files.wordpress.com/2020/01/10.png" alt="10" width="941" height="259" /></div>
+            <h3>Dropping columns ahve redundant or missing data</h3>
+            The features  - currency symbol, trailing code and currency can be dropped. The features ‘is_backing’, ‘permissions’, ‘friends’ and ‘is_starred’ have many missing values, so they could also be dropped at this moment.
+
+            The column ‘URLs’ and ‘source_url’ contain only URLs and modelling algorithm needs numeric data, so they could be dropped.
+
+            There are a few columns which are JSON string which has to be looked in separately to extract only the columns which add value to the modelling.
+
+            The columns to be retained are identified and a new data frame created containing only the columns to be retained.
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-100" src="https://vkwritings.files.wordpress.com/2020/01/29.png" alt="29" width="941" height="164" /></h3>
+            <h3>Reduction of the feature set</div>
+            Some of the columns are redundant and some of them can be clubbed to become one column.
+
+            To compare the various projects, it would be better to convert the ‘money to be raised’ to a single currency. Since the USD rate is given for the various currencies, a new column is created ‘goal_in_usd’.
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-101" src="https://vkwritings.files.wordpress.com/2020/01/30.png" alt="30" width="941" height="114" />
+            </div>To make sense of the dates we could club the various dates and create single columns containing the various duration in milliseconds.
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-90" src="https://vkwritings.files.wordpress.com/2020/01/13.png" alt="13" width="941" height="80" />
+            </div>
+            Some of the columns from the multiple columns stored in the JSON string can be extracted and added the data frame on which modelling is performed. Looking at the ‘category’ column, the value of column ‘slug’ could be split to obtain the ‘parent category’ and the ‘category column’.
+
+            These columns are categorical columns so they could be encoded too.
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-91" src="https://vkwritings.files.wordpress.com/2020/01/14.png" alt="14" width="941" height="304" /></div>
+            <h3>Scaling</h3>
+            From the data, it is very obvious that the columns have various units. In some machine learning algorithms, the units have to be scaled because certain weights may update faster than others. Algorithms like Decision tree or k-nearest neighbours are not affected by the scaling.
+
+            There are a few methods which can be used to scale features. Some of them are the StandardScaler, MinMaxScaler, RobustScaler and Normalizer.
+
+            MinMaxScaler is used in this case and it follows the following formulae
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-92" src="https://vkwritings.files.wordpress.com/2020/01/15.png" alt="15" width="216" height="91" /></div>
+
+            The range of the features is now shrunk to values between 0 and 1. If there were negative values the scaler shrinks them to values between 1 and -1. However, this scaler is sensitive to outliers.
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-102" src="https://vkwritings.files.wordpress.com/2020/01/31.png" alt="31" width="941" height="79" /></div>
+
+            After the first round of preprocessing, we have 169 columns.
+            <ul>
+            <li>All columns are scaled between 0 and 1.</li>
+            <li>Category columns have been one hot encoded</li>
+            <li>All datetime columns have been transformed so that we have logical columns which contain some period in seconds.</li>
+            <li>Columns which have more than 50% as null values or missing values are dropped.</li>
+            <li>All objects which are non-numerical and irrelevant at this stage are dropped.</li>
+            <li>No custom transformations have been applied.</li>
+            </ul>
+            <h2><span style="color: #800000;">Modelling</span></h2>
+            There are many algorithms that can be used. Since this project requires a prediction on the state of the project which is either a 1 or 0(Successful/ Unsuccessful), it is considered as a classification problem. Logistic Regression and Decision Tree are two good models to build and test.
+            <h3>DECISION TREE</h3>
+            The decision tree is the first model that will be fitted. The data is divided into smaller datasets based on a certain features until the target variable (‘State’) falls in one of the 2 categories (0,1)
+
+            GridSearch is used so that the hyperparameters can be tuned to get the most optimal value for the model. The GridSearchCV of the sklearn library is used. A cross-validation process is performed for achieving better results. In K-Fold cross-validation, a given dataset is split into K number of folds or sections. Each of the K folds is considered as testing set at different iterations. For this modelling, we have used 5 fold cross-validation.
+
+            The best combination of the hyperparameters is chosen.
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-94" src="https://vkwritings.files.wordpress.com/2020/01/20.png" alt="20" width="721" height="274" /></div>
+
+            The results are sorted based on the scores of the test and the best combination is picked.
+
+            The table below displays the results and it is clear that the ‘max depth’ of 13 gives the best accuracy
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-95" src="https://vkwritings.files.wordpress.com/2020/01/22.png" alt="22" width="941" height="276" /></div>
+
+            We could have a look at the features which play an important part in this model.
+
+            <hr />
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-96" src="https://vkwritings.files.wordpress.com/2020/01/23.png" alt="23" width="790" height="166" /></div>
+            It can be seen that profile_state and Goal_in USD are 2 columns which have the most influence. One can also see the categories and subcategories which are highly influential.
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-97" src="https://vkwritings.files.wordpress.com/2020/01/24.png" alt="24" width="563" height="471" /></div>
+            <h3>LOGISTIC REGRESSION</h3>
+            Similar to the Decision Tree, we build a Logistic Regression model too. We use GridSearch and provide certain hyperparameters and chose the combination which gives the best result
+
+            <div class="fig figcenter fighighlight"><img class="alignnone size-full wp-image-98"
+                       src="https://vkwritings.files.wordpress.com/2020/01/25.png" alt="25" width="941" 
+                       height="261" /></div>
+
+            As can be seen from the results, the best results are for a value of C = 4
+
+            <div class="fig figcenter fighighlight">
+            <img class="alignnone size-full wp-image-104" 
+            src="https://vkwritings.files.wordpress.com/2020/01/32.png" alt="32" width="941" height="115" />
+            </div>
+
+            Logistic Regression seems to give better results than the Decision tree, though the accuracy is only 76%.
+
+            We could further preprocess by applying a PCA of the columns which have very high variance.
+            We could extract more columns and scale them using another scaler.
+            The process of preprocessing and hyper tuning the parameters is an iterative process.
+            Care has to taken not to overfit the model.<br>
+
+            <br>To view the whole code please use the link <a href="https://github.com/anavidya/kickstarter">Kickstarter</a><br>
+            To improve the results of the Machine learning solution one can
+            <ul>
+            <li>Try different algorithms</li>
+            <li>Look into features that can be used/dropped and feature engineering</li>
+            <li>Tune the hyperparameters of the algorithm selected.</li>
+            </ul></p>
+            </div>
+      </article>
+		</div>
+	
+			
+	
+
+</div>
+</div>
+</body>
+</html>
