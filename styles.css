@@ -137,7 +137,7 @@ a:visited { color: #205caa; }
   display: none;
 }
 .content div {
-    display: none;
+    
     position: relative!important;
     top: 0;
     left: 0;
